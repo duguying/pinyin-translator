@@ -1,0 +1,11 @@
+[package]
+name = "pinyin-translator"
+version = "0.2.1"
+edition = "2021"
+description = "Chinese charator translate as pinyin"
+license = "MIT"
+repository = "https://github.com/duguying/pinyin-translator.git"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
