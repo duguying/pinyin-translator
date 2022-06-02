@@ -1,4 +1,4 @@
-# pinyin-translator
+# pinyin-translator [![Build Status](https://drone.duguying.net/api/badges/rust/pinyin-translator/status.svg)](https://drone.duguying.net/rust/pinyin-translator)
 
 将中文翻译为拼音。内嵌字词库，支持多音词。
 
