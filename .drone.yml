@@ -6,8 +6,9 @@ steps:
     commands:
       - cargo build --all
   - name: publish
+    image: rust:1.61.0
     commands:
-      - cargo publish --token
+      - ./publish.sh
     when:
       event:
         - tag
