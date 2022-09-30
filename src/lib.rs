@@ -140,6 +140,7 @@ impl PinyinTranslator<'static> {
         return output;
     }
 
+    #[allow(unused_assignments)]
     fn translate_raw(&self, content: String) -> String {
         let mut result: String = "".to_string();
         let mut len: usize = 0;

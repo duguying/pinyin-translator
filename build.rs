@@ -67,5 +67,5 @@ pub const WORDS: &'static [&'static str] = &[
     output = output.replace("{{4}}", format!("{}", word_width).as_str());
 
     let mut outfile = fs::File::create("./src/vars.rs").unwrap();
-    outfile.write_all(output.as_bytes());
+    outfile.write_all(output.as_bytes()).unwrap();
 }
