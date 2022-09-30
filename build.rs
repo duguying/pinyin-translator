@@ -4,11 +4,11 @@ use std::io::{Read, Write};
 fn main() {
     let mut word_width = 0;
     let mut max_width_word = "";
-    let mut fh_chars = fs::File::open("./chars.csv").unwrap();
+    let mut fh_chars = fs::File::open("./dict/chars.csv").unwrap();
     let mut chars_buf = String::new();
     fh_chars.read_to_string(&mut chars_buf).unwrap();
 
-    let mut fh_words = fs::File::open("./words.csv").unwrap();
+    let mut fh_words = fs::File::open("./dict/words.csv").unwrap();
     let mut words_buf = String::new();
     fh_words.read_to_string(&mut words_buf).unwrap();
 
@@ -19,7 +19,8 @@ pub const WORD_LEN: usize = {{4}};
 
 // 字表
 pub const CHARS: &'static [&'static str] = &[
-".to_string();
+"
+    .to_string();
 
     let chars_list = chars_buf.split("\n");
     for line in chars_list {
@@ -30,11 +31,13 @@ pub const CHARS: &'static [&'static str] = &[
         output.push_str(format!("\t\"{}\",\n", l).as_str());
     }
 
-    output.push_str("];
+    output.push_str(
+        "];
 
 // 单词表
 pub const WORDS: &'static [&'static str] = &[
-");
+",
+    );
 
     let words_list = words_buf.split("\n");
     for line in words_list {
@@ -56,11 +59,13 @@ pub const WORDS: &'static [&'static str] = &[
 
     println!("{}-{}", word_width, max_width_word);
 
-    output.push_str("
-];");
+    output.push_str(
+        "
+];",
+    );
 
     output = output.replace("{{4}}", format!("{}", word_width).as_str());
 
-    let mut outfile = fs::File::create("../src/vars.rs").unwrap();
+    let mut outfile = fs::File::create("./src/vars.rs").unwrap();
     outfile.write_all(output.as_bytes());
 }
