@@ -7,6 +7,9 @@ steps:
       - cargo build --all
   - name: publish
     image: rust:1.62.1
+    environment:
+      token: 
+        from_secret: token
     commands:
       - ./publish.sh
     when:
