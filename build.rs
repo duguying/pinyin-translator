@@ -8,7 +8,7 @@ fn main() {
     let mut chars_buf = String::new();
     fh_chars.read_to_string(&mut chars_buf).unwrap();
 
-    let mut fh_words = fs::File::open("./dict/words.csv").unwrap();
+    let mut fh_words = fs::File::open("./phrase-pinyin-data/large_pinyin.txt").unwrap();
     let mut words_buf = String::new();
     fh_words.read_to_string(&mut words_buf).unwrap();
 
@@ -54,6 +54,8 @@ pub const WORDS: &'static [&'static str] = &[
                 max_width_word = *key
             }
         }
+        let l = l.replace(": ", ",");
+        let l = l.replace(" ", ",");
         output.push_str(format!("\t\"{}\",\n", l).as_str());
     }
 
